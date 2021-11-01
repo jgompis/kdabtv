@@ -9,12 +9,21 @@
 
 import QtQuick 2.0
 
-Rectangle {
-    width: 400; height: 400
-    color: "#00a3fc"
+Image {
+    id: image
+    width: 800; height: 800
+    source: "https://eoimages.gsfc.nasa.gov/images/imagerecords/74000/74393/world.topo.200407.3x5400x2700.jpg"
+    fillMode: Image.PreserveAspectFit
 
-    Image {
-        x: 150; y: 150
-        source: "../images/rocket.png"
+
+    Rectangle {
+        color: "blue"
+        x: 0; y: 750
+        height: 50
+        width: image.width * image.progress
+        visible: image.progress != 1
     }
+
+    onStatusChanged: console.log(sourceSize)
 }
+
