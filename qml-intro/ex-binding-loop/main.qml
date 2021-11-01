@@ -11,8 +11,11 @@ import QtQuick 2.0
 
 Rectangle {
     color: "black"
-    width: child.width
-    height: child.height
+    /*Para evitar el loop se usan las propiedades implicitas*/
+    implicitHeight: child.implicitHeight
+    implicitWidth: child.implicitWidth
+    //width: child.width
+    //height: child.height
 
     Image {
         id: child
