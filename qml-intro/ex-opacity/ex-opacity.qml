@@ -21,11 +21,16 @@ Rectangle {
         Rectangle {
             x: 100; y: 25; width: 200; height: 50
             color: "red"
+            /*La opacidad resultante será 0.5*0.5,
+            debido a que el rectangulo padre también
+            tiene opacidad*/
             opacity: 0.5
         }
         Rectangle {
             x: 100; y: 90; width: 200; height: 50
             color: "red"
+            /*La opacidad resultante será 0.5*,
+            debido a que el rectangulo padre tiene opacidad*/
         }
     }
 
