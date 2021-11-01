@@ -16,6 +16,7 @@ Rectangle {
     color: "#00a3fc"
 
 //--> slide
+    /*Imagen animada*/
     AnimatedImage {
         id: animation
 
@@ -26,10 +27,12 @@ Rectangle {
     }
 //<-- slide
 
+    /*Rectangulo negro de carga*/
     Rectangle {
         x: 100; y: 260; width: 200; height: 24
         color: "black"
 
+        /*Rectangulo rojo que se mueve*/
         Rectangle {
             width: 4; height: 24
             color: "red"
