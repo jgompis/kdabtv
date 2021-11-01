@@ -16,9 +16,14 @@ Rectangle {
 
     Rectangle {
         color: "green"
+        /*Los anchors sobreescriben las propiedades
+        básicas*/
         y: 25 //overwritten by the top anchor
         height: 50; width: 50
-        anchors.right: background.right
-        anchors.top: background.top
+        /*También se pueden formatear de esta manera*/
+        anchors{
+            right: background.right
+            top: background.top
+        }
     }
 }

@@ -17,6 +17,10 @@ Rectangle {
     Rectangle {
         color: "green"
         height: 50
+
+        /*Solo se mantiene el alto del
+        rectangulo en este caso*/
+
         anchors.top: background.top
 
         anchors.left: background.left

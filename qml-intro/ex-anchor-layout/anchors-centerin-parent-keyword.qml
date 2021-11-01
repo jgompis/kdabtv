@@ -17,6 +17,7 @@ Rectangle {
     Rectangle {
         color: "green"
         width: 50; height: 50
-        anchors.centerIn: parent
+        /*"parent" es el padre del elemento*/
+        anchors.centerIn: parent // Centra el elemento
     }
 }

@@ -18,6 +18,11 @@ Rectangle {
         color: "green"
         y: 25
         height: 50; width: 50
+        /*La parte derecha del rectángulo hijo se encuentra
+        alineada con la parte derecha del rectangulo
+        padre, es por ello que no es necesario establecer x*/
         anchors.right: background.right
+
     }
 }
+

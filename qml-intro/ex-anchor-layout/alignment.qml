@@ -14,13 +14,23 @@ Rectangle {
   width: 400; height: 200
   color: "lightblue"
 
-  Image { id: book; source: "../images/book.svg"
-          anchors.left: bg.left
-          anchors.leftMargin: bg.width/16
-          anchors.verticalCenter: bg.verticalCenter }
+Image {
+    id: book;
+    source: "../images/book.svg"
+    anchors {
+      left: bg.left
+      leftMargin: bg.width/16
+      verticalCenter: bg.verticalCenter
+    }
+}
 
-  Text { text: "Writing"; font.pixelSize: 32
-         anchors.left: book.right
-         anchors.leftMargin: 32
-         anchors.baseline: book.verticalCenter }
+
+Text {
+    text: "Writing";
+    font.pixelSize: 32
+    anchors {
+        left: book.right
+        leftMargin: 32 // Margen izquierdo de 32 pixeles
+        baseline: book.verticalCenter } // Baseline es "el renglon" del texto
+    }
 }

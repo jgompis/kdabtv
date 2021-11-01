@@ -16,7 +16,7 @@ Rectangle {
 
     Rectangle {
         color: "green"
-        anchors.fill: parent
-        anchors.margins: 10
+        anchors.fill: parent // llena el padre
+        anchors.margins: 10 // pone márgenes de 10
     }
 }
