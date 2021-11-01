@@ -17,5 +17,8 @@ Rectangle {
         x: 50; y: 35
         source: "../images/rocket.png"
         rotation: 45.0
+        /*Transformacion alrededor de la
+        esquina superior izquierda*/
+        transformOrigin: Item.TopLeft
     }
 }
