@@ -8,14 +8,22 @@
  *
  *************************************************************************/
 
-import QtQuick 2.0
+import QtQuick 2.12
 
 Rectangle {
     width: 400; height: 100
     color: "lightblue"
 
+    /*Elemento Custom en LineEdit.qml*/
     LineEdit {
+        id: linedit
         anchors.centerIn: parent
         width: 300; height: 50
+    }
+
+    MouseArea {
+        anchors.fill: parent
+
+        onClicked: console.log(linedit.text)
     }
 }
