@@ -22,8 +22,16 @@ Rectangle {
 
         MouseArea {
             anchors.fill: parent
-            onPressed: parent.color = "green"
+
+            /*Cambios al presionar y soltar*/
+            onPressed: parent.color = "green" // Usando asignación
             onReleased: parent.color = "black"
+            /*Probando hover*/
+            //acceptedButtons: Qt.RightButton
+            //hoverEnabled: true
+            //onHoveredChanged: parent.color = Qt.colorEqual(parent.color, "black")? "red" : "black"
+            //hoverEnabled: true
+            //onHoveredChanged: parent.color= containsMouse?  "green" : "black"
         }
     }
 
@@ -34,7 +42,10 @@ Rectangle {
         text: "Click me"
         font.pixelSize: 48
 
+        // Area donde toma las acciones
         MouseArea {
+            /*Por defecto es cero, por lo que se debe
+            indicar el tamaño */
             anchors.fill: parent
             onClicked: parent.font.bold = !parent.font.bold
         }

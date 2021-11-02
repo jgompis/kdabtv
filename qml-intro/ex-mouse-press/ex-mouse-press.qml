@@ -16,6 +16,8 @@ Rectangle {
     Text {
         anchors.centerIn: parent
         text: "Press me"; font.pixelSize: 48
+        /*Detecta si se ha presionado el area haciendo
+        uso de los bindings*/
         color: mouseArea.pressed ? "green" : "black"
 
         MouseArea {
