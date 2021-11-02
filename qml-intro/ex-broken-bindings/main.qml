@@ -13,6 +13,7 @@ Rectangle {
     width: 680
     height: 240
 
+    /*focusBox*/
     Rectangle {
         id: focusBox
         anchors {
@@ -21,13 +22,15 @@ Rectangle {
             leftMargin: 20
         }
         width:200; height:200
-        color: "green"
+        /*Property binding (declarativo)*/
+        color: focusArea.containsMouse? "green": "cyan"
         Text {
             anchors.centerIn: parent
             text: "Observe my color"
         }
     }
 
+    /*NN*/
     Rectangle {
         anchors.centerIn: parent
         width: 200; height:200
@@ -43,6 +46,7 @@ Rectangle {
         }
     }
 
+    /*NN*/
     Rectangle {
         anchors {
             verticalCenter: parent.verticalCenter
@@ -55,6 +59,15 @@ Rectangle {
         MouseArea {
             id: clickArea
             anchors.fill:  parent
+
+            /*signal handler (imperativo),
+            al ejecutar la imperativa que dice que
+            focusBox.color= "blue" se pierde la propertyBinding
+            que se encontraba almacenada anteriormente en la propiedad
+            color de focusBox*/
+            onClicked: ()=>{
+               focusBox.color= "blue"
+            }
         }
         Text {
             color: "white"
@@ -63,3 +76,10 @@ Rectangle {
         }
     }
 }
+
+/*NOTA IMPORTANTE: cuando se asigna una propiedad, el binding
+se remueve*/
+
+/*NOTA IMPORTANTE 2: la utilización del táctil con el dedo
+o lo que fuere funciona de la misma manera que el mouse, por lo
+menos en lo que respecta a clicks y lo visto en esta unidad*/
