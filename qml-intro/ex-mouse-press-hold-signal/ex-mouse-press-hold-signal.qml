@@ -21,6 +21,8 @@ Rectangle {
 
         MouseArea {
             anchors.fill: parent
+            /*Simplemente se usa este signal handler del
+            elemento MouseArea para manejar el Press and Hold*/
             onPressAndHold: parent.isActive = !parent.isActive
         }
     }
