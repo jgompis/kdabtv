@@ -11,13 +11,15 @@
 import QtQuick 2.0
 
 Rectangle {
-    width: 1000; height: 1000; color: "lightblue"
+    width: 1000; height: 1000;
+    color: "lightblue"
 
     MultiPointTouchArea {
-        anchors.fill: parent
+        anchors.fill: parent // Llena todo el rectangulo superior
         minimumTouchPoints: 1
         maximumTouchPoints: 3
 
+        /*Lista de elementos*/
         touchPoints: [
             TouchPoint { id: touch1 },
             TouchPoint { id: touch2 },
@@ -26,8 +28,11 @@ Rectangle {
     }
 
     Rectangle {
+        /*Ubica el rectangulo donde se ha presionado
+        el boton*/
         x: touch1.x - width/2; y: touch1.y - height/2
         width: 200; height: 200
+        /*Solo es visible si se encuentra presionado el tactil*/
         visible: touch1.pressed
         color: "cyan"
     }
