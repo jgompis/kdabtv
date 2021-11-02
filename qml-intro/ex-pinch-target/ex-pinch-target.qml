@@ -15,10 +15,13 @@ Flickable {
     contentWidth: 2000; contentHeight: 2000
 
     PinchArea {
-        anchors.fill: parent
-        pinch.target: img
+        anchors.fill: parent // Llena el elemento padre
+        pinch.target: img // Elemento para hacer pinch, en este caso img
+        /*Escala mínima y máxima, para no poder realizar el pinch.
+        por fuera de estos límites*/
         pinch.maximumScale: 1.0
         pinch.minimumScale: 0.1
+        /*Indica en que ejes se puede realizar el pinch*/
         pinch.dragAxis: Pinch.XAndYAxis
     }
 
