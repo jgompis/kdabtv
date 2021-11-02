@@ -14,6 +14,9 @@ Rectangle {
     width: 400; height: 100; color: "lightblue"
 
     LineEdit {
+        /*Las propiedades que se modifican son las del elemento
+        padre de el nuevo componente, pero no se puede acceder
+        a las del hijo a no se por un alias*/
         id: lineEdit
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
@@ -26,6 +29,7 @@ Rectangle {
         anchors.topMargin: 12
         anchors.left: parent.left
         anchors.leftMargin: 16
+        /*html*/
         text: "<b>Summary:</b> " + lineEdit.text
     }
 

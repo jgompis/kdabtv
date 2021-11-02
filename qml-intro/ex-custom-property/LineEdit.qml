@@ -10,12 +10,24 @@
 
 import QtQuick 2.0
 
+
 Rectangle {
-    property string text: textInput.text
+
+    /*Propiedad personalizada*/
+    //property string text: textInput.text // binding con la del TextInput
+    /* evita romper el binding para acceder a la propiedad del hijo
+    sería algo así como una herencia*/
+    property alias text: textInput.text
+
+    /*En caso de no tener que acceder a una propiedad de un elemento
+    hijo y necesitar una propiedad personalizada, se puede agregar
+    como una propiedad personalizada de manera clásica*/
+    property int diameter: 8
+
 
     border.color: "green"
     color: "white"
-    radius: 4; smooth: true
+    radius: diameter/2; smooth: true
     clip: true
 
     TextInput {
