@@ -22,6 +22,11 @@ Rectangle {
         }
         width: 150; height: 150
         color: activeFocus ? "red" : "darkred"
+
+        /*KeyNavigation es como una clase con métodos
+        estaticos como en este caso right, al cual se le
+        enlaza el elemento rightRect para que se haga foco
+        sobre el mismo al presionar la flecha derecha*/
         KeyNavigation.right: rightRect
         focus: true
     }
