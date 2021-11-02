@@ -17,10 +17,30 @@ Rectangle {
         id: rocket
         anchors.centerIn: parent
         source: "../images/rocket.svg"
+
+        transform: Rotation{
+            origin.x: 0
+            origin.y: 25
+            angle: 45;
+        }
+
+        // Funcion para hacer una prueba
+        function rotatefn(angle){
+            transform[0].angle= (transform[0].angle + angle) % 360
+        }
     }
 
+    /*Dentro del elemento Keys se encuentran muchos de los botones
+    del teclado*/
     Keys.onLeftPressed:
-        rocket.rotation = (rocket.rotation - 10) % 360
+        rocket.rotatefn(-10)
+        //rocket.rotation = (rocket.rotation - 10) % 360
     Keys.onRightPressed:
-        rocket.rotation = (rocket.rotation + 10) % 360
+        rocket.rotatefn(10)
+        //rocket.rotation = (rocket.rotation + 10) % 360
+    /*Para cualquier boton, excepto para los que ya tengan
+    asignado el handler*/
+    Keys.onPressed:
+        // Detección de la tecla enter
+        console.log(event.key === Qt.Key_Return)
 }
