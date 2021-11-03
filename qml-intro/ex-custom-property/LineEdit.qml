@@ -12,8 +12,8 @@ import QtQuick 2.0
 
 
 Item {
-    property alias text: textInput.text
-    property alias diameter: rectangulo.diameter
+    property alias text:        textInput.text
+    property alias diameter:    rectangulo.diameter
 
     Rectangle {
 

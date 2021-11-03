@@ -12,19 +12,25 @@ import QtQuick 2.0
 
 Item {
     width: 250
-    height: 200
+    height: 300
+
 
 //--> slide
     Rectangle {
         //--> hide
+        id: rectanguloSuperior
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top: parent.top
-        anchors.bottom: parent.verticalCenter
+        height: 100
+        //anchors.bottom: parent.verticalCenter
         color: "lightblue"
         //<-- hide
         CheckBox {
             anchors.centerIn: parent
+            /*Se debe tener en cuenta que checkValue
+            es el parametro de la señal, lo que hace
+            que sea un poco confuso el uso de las señales*/
             onChecked: checkValue ? parent.color = "red"
                                   : parent.color = "lightblue"
         }
@@ -34,10 +40,11 @@ Item {
     // in QML, always prefer a custom property over a signal.
     Rectangle {
         //--> hide
+        id: rectanguloInferior
         anchors.left: parent.left
         anchors.right: parent.right
-        anchors.top: parent.verticalCenter
-        anchors.bottom: parent.bottom
+        anchors.top: rectanguloSuperior.bottom
+        height: 100
         //<-- hide
         // We can now bind to the state
         color: checkBoxBetter.checked ? "red" : "lightblue"
@@ -53,5 +60,22 @@ Item {
             onCheckedChanged: console.log("checked=" + checked)
         }
     }
+
 //<-- slide
+
+    /*Prueba de rectangulo para ver la propiedad
+    autogenerada*/
+    ColorRectangle {
+        id: roberto
+        anchors {
+            top: rectanguloInferior.bottom
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+        }
+
+        checked: true
+
+        onCheckedChanged: text= checked? "chequeado" : "nochequeado"
+    }
 }
