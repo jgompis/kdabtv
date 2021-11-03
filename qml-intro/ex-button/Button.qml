@@ -14,8 +14,10 @@ Item {
 
     property alias text: label.text
 
-    implicitWidth: label.implicitWidth + __margin * 2
-    implicitHeight: background.implicitHeight
+    /*Propiedades que se usan cuando externamente
+    no se especifican el alto y el ancho*/
+    //implicitWidth: label.implicitWidth + __margin * 2
+    //implicitHeight: background.implicitHeight
 
     readonly property int __margin: 35
 

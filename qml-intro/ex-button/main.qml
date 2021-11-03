@@ -12,6 +12,8 @@ import QtQuick 2.0
 Item {
     width: 800; height: 600
 
+    /*Es una especie de layout manager donde sus hijos
+    se ordenan siguiendo una fila*/
     // Using explicit width
     Row {
         id: topButtonRow
