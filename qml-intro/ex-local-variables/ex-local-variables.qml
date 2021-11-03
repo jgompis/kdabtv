@@ -16,10 +16,13 @@ Rectangle {
     height: cellCount * itemSize
     border.color: "black"
 
+    /*Variables locales*/
     property int cellCount: 4
     property int itemSize: 80
 
     Rectangle {
+        /*Variables locales, usa underscores
+        para indicar que son locales*/
         property int __row: 2
         property int __col: 1
 
