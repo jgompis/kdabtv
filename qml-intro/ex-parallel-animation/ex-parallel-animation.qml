@@ -18,6 +18,9 @@ Rectangle {
         source: "../images/rocket.png"
     }
 
+    /*Ejecuta las dos animaciones en paralelo
+    por lo que en este caso es posible animar
+    tanto la escala como la opacidad*/
     ParallelAnimation {
         NumberAnimation {
             target: rocket; properties: "scale"
