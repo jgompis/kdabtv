@@ -12,6 +12,7 @@ import QtQuick 2.0
 
 //--> setup
 Rectangle {
+    id: root
     width: 150; height: 360
     color: "black"
 
@@ -19,51 +20,28 @@ Rectangle {
         id: redLight
         x: 25; y: 15; width: 100; height: 100
         radius: 50
+        color: root.state == "stopState" ||
+               root.state == "waitState"? "Red" : "lightGray"
     }
     Rectangle {
         id: yellowLight
         x: 25; y: 130; width: 100; height: 100
-        radius: 50
+        radius: root.state == "waitState" ||
+                root.state == "slowState"? 25 : 50
+        color: root.state == "waitState" ||
+               root.state == "slowState"? "Yellow" : "lightGray"
     }
     Rectangle {
         id: greenLight
         x: 25; y: 245; width: 100; height: 100
         radius: 50
+        color: root.state == "driveState"? "Green" : "lightGray"
     }
-    //~~~
-    //<-- setup
-    //--> states
-    states: [
-        State {
-            name: "stopState"
-            PropertyChanges { target: redLight; color: "red" }
-            PropertyChanges { target: yellowLight; color: "lightGray" }
-            PropertyChanges { target: greenLight; color: "lightGray" }
-        },
-        State {
-            name: "waitState"
-            PropertyChanges { target: redLight; color: "red" }
-            PropertyChanges { target: yellowLight; color: "yellow" }
-            PropertyChanges { target: greenLight; color: "lightGray" }
-        },
-        //~~~
-        //--> hide
-        State {
-            name: "driveState"
-            PropertyChanges { target: redLight; color: "lightGray" }
-            PropertyChanges { target: yellowLight; color: "lightGray" }
-            PropertyChanges { target: greenLight; color: "green" }
-        },
-        State {
-            name: "slowState"
-            PropertyChanges { target: redLight; color: "lightGray" }
-            PropertyChanges { target: yellowLight; color: "yellow" }
-            PropertyChanges { target: greenLight; color: "lightGray" }
-        }//<-- hide
-    ]
+
     //<-- states
     state: "stopState"
 
+    /*Timer para cambiar entre estados*/
     Timer {
         interval: 1000
         repeat: true
