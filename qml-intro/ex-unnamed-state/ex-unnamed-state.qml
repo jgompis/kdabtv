@@ -31,12 +31,14 @@ Item {
                 switch (root.state) {
                 case "stateA": root.state = "stateB"; break
                 case "stateB": root.state = "stateC"; break
-                case "":
+                case "": // Forma de hacer el estado inicial
                 case "stateC": root.state = "stateA"; break
                 }
         }
     }
 
+    // Estado inicial para setear las propiedades iniciales
+    state: ""
     //--> slide
     states: [
         //~~~
@@ -65,7 +67,8 @@ Item {
             PropertyChanges {
                 target: myRect
                 x : 0
-                // y not specified
+                /*como no se especifica y,
+                vuelve al valor especificado al principio*/
                 color: "lightgreen"
             }
         }

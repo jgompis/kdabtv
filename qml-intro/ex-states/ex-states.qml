@@ -16,6 +16,8 @@ Rectangle {
     width: 150; height: 360
     color: "black"
 
+    /*Sin el uso de state el codigo se hace
+    inentendible*/
     Rectangle {
         id: redLight
         x: 25; y: 15; width: 100; height: 100
