@@ -9,7 +9,7 @@
 
 import QtQuick 2.0
 
-Item {
+FocusScope {
     id: root
     property alias title: title.text
     implicitHeight: row.implicitHeight
@@ -22,11 +22,11 @@ Item {
             margins: -2
         }
         color: "transparent"
-        border {
+        /*border {
             color: "black"
             width: 1
-        }
-        visible: root.activeFocus
+        }*/
+        //visible: root.activeFocus
     }
 
     Row {

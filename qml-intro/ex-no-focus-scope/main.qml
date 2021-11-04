@@ -22,7 +22,7 @@ Rectangle {
             id: firstName
             focus: true
             title: "First Name:"
-            KeyNavigation.down: lastName
+            KeyNavigation.down: lastName // le otorga el foco a la otra
             anchors { left: parent.left; right: parent.right; leftMargin: 10; rightMargin: 10 }
         }
 
