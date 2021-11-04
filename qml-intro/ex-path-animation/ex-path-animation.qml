@@ -28,7 +28,10 @@ Rectangle {
         loops: 10
         //<-- hide
         target: rocket
+
+        /*Punto que debe ir primero*/
         orientation: PathAnimation.TopFirst
+        /*Punto central del cohete*/
         anchorPoint: Qt.point(rocket.width/2,
                               rocket.height/2)
 
