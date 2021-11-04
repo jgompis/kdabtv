@@ -13,16 +13,20 @@ Rectangle {
     width: 300
     height: 100
     //--> slide
+    property int foo: 10
     Component {
         id: lineEditComponent
 
         LineEdit {
-            text: "Hello World"
-            onReturnPressed: txt2.text = "Return Pressed: " + text
+            text: "Hello World" + foo
+            onReturnPressed: txt2.text = "Return Pressed: " + text // Se puede realizar acá directamente
         }
     }
 
     Loader {
+        /*Esta es la propiedad que vera el Component
+        ya que será un hijo de Loader*/
+        property int foo: 10
         id: loader
         sourceComponent: lineEditComponent
         anchors { left: parent.left; right: parent.right; top: parent.top }
