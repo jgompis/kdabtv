@@ -19,6 +19,7 @@ Rectangle {
         width: 50; height: 50
         color: "red"
 
+        /*Cuando cambie x se anima según una SpringAnimation*/
         Behavior on x { SpringAnimation { spring: 1; damping: 0.2 } }
         Behavior on y { SpringAnimation { spring: 2; damping: 0.2 } }
     }
