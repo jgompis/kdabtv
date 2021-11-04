@@ -18,10 +18,17 @@ Rectangle {
         source: "../images/rocket.png"
     }
 
+    /*Animación secuencial, primero se ejecuta una
+    y luego la otra*/
     SequentialAnimation {
         NumberAnimation {
             target: rocket; properties: "scale"
             from: 1.0; to: 0.5; duration: 1000
+        }
+
+        /*Se agrega una pausa entre las animaciones*/
+        PauseAnimation {
+            duration: 200
         }
         NumberAnimation {
             target: rocket; properties: "opacity"
