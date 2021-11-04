@@ -18,10 +18,14 @@ Item {
         anchors.centerIn: parent
         smooth: true
 
+
+
         RotationAnimation on rotation {
             from: 45; to: 315
-            direction: RotationAnimation.Shortest
+            direction: RotationAnimation.Shortest // distancia mas corta
             duration: 1000
         }
+
+
     }
 }
