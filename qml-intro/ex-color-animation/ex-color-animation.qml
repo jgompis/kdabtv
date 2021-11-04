@@ -21,6 +21,11 @@ Rectangle {
         color: "green"
     }
 
+    /*Anima el color desde el valor inicial
+    al valor final en 1000ms, al igual que
+    en ejemplos anteriores arranca apenas
+    se ejecuta el programa, pero es trivial
+    cambiar este comportamiento*/
     ColorAnimation {
         target: rectangle1
         property: "color"
