@@ -48,6 +48,8 @@ Rectangle {
     //--> slide
     transitions: [
         Transition {
+            /*Transicion reversible, funciona en ambos
+            sentido */
             from: "with text"; to: "without text"
             reversible: true
             PropertyAnimation {
