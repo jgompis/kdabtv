@@ -70,6 +70,9 @@ Rectangle {
     //--> slide
     transitions: [
         Transition {
+            /*Wildcard, desde cualquier estado a cualquier estado en
+            caso de que todas las transiciones necesiten las mismas
+            animaciones*/
             from: "*"; to: "*"
             PropertyAnimation {
                 targets: [redLight, yellowLight, greenLight]
