@@ -28,6 +28,10 @@ Rectangle {
         id: greenLight
         x: 25; y: 245; width: 100; height: 100
         radius: 50
+        MouseArea {
+            id: greenLightTouch
+            anchors.fill: parent
+        }
     }
     states: [
         State {
@@ -57,6 +61,7 @@ Rectangle {
     ]
     state: "stopState"
 
+
     Timer {
         interval: 1000
         repeat: true
@@ -68,11 +73,13 @@ Rectangle {
         }
     }
 
+
     //--> slide
     transitions: [
         Transition {
+            /*Estado anterior a próximo estado*/
             from: "stopState"; to: "waitState"
-            PropertyAnimation {
+            PropertyAnimation { // Animación asociada a la transición
                 targets: [redLight, yellowLight]
                 properties: "color"; duration: 100
             }
@@ -83,9 +90,9 @@ Rectangle {
                 targets: [redLight, yellowLight, greenLight]
                 properties: "color"; duration: 100
             }
-        }, //<-- collapse
-        //~~~
-        //--> hide
+            }, //<-- collapse
+            //~~~
+            //--> hide
         Transition {
             from: "driveState"; to: "slowState"
             PropertyAnimation {
