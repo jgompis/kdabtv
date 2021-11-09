@@ -10,7 +10,7 @@
 import QtQuick 2.0
 
 Rectangle {
-    width: 150; height: 300; color: "white"
+    width: 150; height: 800; color: "white"
 
     ListModel {
         id: nameModel
@@ -39,13 +39,33 @@ Rectangle {
             }
         }
     }
+
+    Rectangle {
+        id: rect
+        color: "cyan"
+        anchors {
+            left: parent.left
+            right: parent.right
+        }
+        height: 500
+    }
+
     //--> slide
     ListView {
         model: nameModel
-        delegate: nameDelegate9
+        delegate: nameDelegate
         //--> hide
-        anchors.fill: parent
+
+        anchors {
+            left: parent.left
+            right: parent.right
+            top: rect.bottom
+            bottom: parent.bottom
+        }
+
         focus: true
+        /*Si se pone en false, se va a hacer scroll
+        sobre el rectangulo cyan*/
         clip: true
         //<-- hide
         highlight: Rectangle {//--> collapse
