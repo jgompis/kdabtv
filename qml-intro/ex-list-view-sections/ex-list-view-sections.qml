@@ -42,7 +42,7 @@ Rectangle {
     //--> slide
     ListView {
         model: nameModel
-        delegate: nameDelegate
+        delegate: nameDelegate9
         //--> hide
         anchors.fill: parent
         focus: true
