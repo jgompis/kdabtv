@@ -29,7 +29,6 @@ Rectangle {
             text: model.name;
             font.pixelSize: 32
 
-
             MouseArea {
                 anchors.fill: parent
                 onClicked: __lv.currentIndex = model.index
@@ -41,18 +40,21 @@ Rectangle {
         anchors.fill: parent
         model: nameModel
         delegate: nameDelegate
-        focus: true
+        focus: true // Soporta keyboard focus
         clip: true
+        /*Linea rosada superior*/
         header: Rectangle {
             anchors { left: parent.left; right: parent.right }
             height: 10
             color: "pink"
         }
+        /*Linea rosada inferior*/
         footer: Rectangle {
             anchors { left: parent.left; right: parent.right }
             height: 10
             color: "lightblue"
         }
+        /*Resaltado*/
         highlight: Rectangle {
             anchors { left: parent.left; right: parent.right }
             color: "lightgray"
