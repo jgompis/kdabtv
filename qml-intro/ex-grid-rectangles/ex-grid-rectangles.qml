@@ -10,8 +10,10 @@
 import QtQuick 2.0
 
 Grid {
-    x: 15; y: 15; width: 300; height: 300
+    //x: 15; y: 15; width: 300; height: 300
+    width: 800; height: 600; x: 15; y: 15
 
+    /*Propiedades de la grilla*/
     columns: 2; rows: 2; spacing: 20
 
     Rectangle { width: 125; height: 125; color: "red" }

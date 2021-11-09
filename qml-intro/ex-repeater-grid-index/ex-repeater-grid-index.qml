@@ -18,6 +18,10 @@ Rectangle {
 
         Repeater {
             model: 24
+            /*Repite un rectangulo con una property binding
+            lo que hace que se cambie el texto para cada uno.
+            Se aprecia que la grilla se va llenando por fila
+            y de derecha a izquierda*/
             Rectangle {
                 width: 70; height: 70
                 color: "lightgreen"
