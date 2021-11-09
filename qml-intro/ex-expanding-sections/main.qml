@@ -41,16 +41,30 @@ ListView {
         MouseArea {
             anchors.fill: parent
             onClicked: __lv.currentIndex = index
+            onPressed:
+                animation.running= true
         }
+
+
+        /*Agregado de algunas animaciones*/
+        ColorAnimation on color{
+            id: animation
+            from: "grey"
+            to: "white"
+            duration: 500
+            running: false
+        }
+
+
     }
 
-    highlight: HighlightDelegate {
+    /*highlight: HighlightDelegate {
         width: parent.width
         anchors {
             left: parent.left
             right: parent.right
         }
-    }
+    }*/
 
     section {
         property: "team"

@@ -9,17 +9,20 @@
 
 import QtQuick 2.0
 
-Text {
+Rectangle {
     clip: true // Necesario para que no se vea
-    text: model.name;
-    font.pixelSize: 24
+
+    Text {
+        id: txt
+        text: model.name;
+        font.pixelSize: 24
+    }
 
     property bool expanded: false
 
-    height: expanded ? implicitHeight : 0
+    height: expanded ? txt.implicitHeight : 0
     /*Agregado para copiar a Android*/
-    visible: height == implicitHeight ? true: false
-
+    visible: height == txt.implicitHeight ? true: false
 
     /* Hace que colapse lentamente, básicamente
     es la mejor forma de hacerlo*/
