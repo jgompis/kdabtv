@@ -12,6 +12,7 @@ import QtQuick 2.0
 Item {
     width: 200; height: 200
 
+    /*Contenido de la lista*/
     ListModel {
         id: nameModel
         ListElement { name: "Alice" }
@@ -24,6 +25,7 @@ Item {
         ListElement { name: "Wendy" }
     }
 
+    /*Delegado de la lista*/
     Component {
         id: nameDelegate
         Text {
@@ -60,10 +62,17 @@ Item {
                 color: "lightblue"
                 width: parent.width
             }//<-- hide
+
+            /*highlight range mode, aplica
+            entre 42 y 150 según se indica.
+            Tratará siempre de que el currentItem
+            se encuentre dentro de esta sección*/
             preferredHighlightBegin: 42
             preferredHighlightEnd: 150
             highlightRangeMode: ListView.ApplyRange
+            //highlightRangeMode: ListView.StrictlyEnforceRange // lo hara a la fuerza
 
+            /*Lineas rojas (Rectangulos de altura 1)*/
             Rectangle {//--> collapse
                 color: "red"
                 x: 0; y: parent.preferredHighlightBegin
