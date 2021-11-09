@@ -12,6 +12,7 @@ import QtQuick 2.0
 Rectangle {
     width: 200; height: 200
 
+    /*El mismo utilizado para ListView*/
     ListModel {
         id: nameModel
         ListElement { file: "../images/rocket.svg"
