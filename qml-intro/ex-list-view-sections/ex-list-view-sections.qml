@@ -14,6 +14,9 @@ Rectangle {
 
     ListModel {
         id: nameModel
+        /*Agregado de elementos, para cada uno se
+        especifica la propiedad "team" que servirá
+        para organizar la lista*/
         ListElement { name: "Alice"; team: "Crypto" }
         ListElement { name: "Bob"; team: "Crypto" }
         ListElement { name: "Jane"; team: "QA" }
@@ -21,6 +24,7 @@ Rectangle {
         ListElement { name: "Wendy"; team: "Graphics" }
     }
 
+    /*Clásico elemento de la lista*/
     Component {
         id: nameDelegate
         Text {
@@ -48,7 +52,8 @@ Rectangle {
             color: "lightblue"
             width: parent.width
         }//<-- collapse
-        section.property: "team"
+        section.property: "team" // Propiedad de la seccion
+        /*Diferentes formas de mostrar la sección*/
         section.criteria: ViewSection.FullString
 
         section.delegate: Rectangle {
