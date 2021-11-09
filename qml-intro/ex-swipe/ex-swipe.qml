@@ -11,7 +11,9 @@ import QtQuick 2.0
 //--> slide
 ListView {
     width: 200; height: 200
+    /*Para que solo mueva un ítem*/
     snapMode: ListView.SnapOneItem
+    /*Sentido horizontal*/
     orientation: ListView.Horizontal
 
     model: ListModel {
@@ -22,6 +24,7 @@ ListView {
 
     delegate: Rectangle {
         color: model.color
+        /*El truco es hace que ocupe todo el ancho de la lista*/
         width: ListView.view.width
         height: ListView.view.height
 

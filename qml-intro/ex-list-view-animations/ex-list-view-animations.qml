@@ -40,7 +40,7 @@ Rectangle {
         delegate: nameDelegate
         clip: true //<-- hide
 
-        /*Animación que indica como se llena la ListView*/
+        /*Animación que indica como se llena la  ListView*/
         populate: Transition {
             NumberAnimation { properties: "x,y"; duration: 300 }
         }
