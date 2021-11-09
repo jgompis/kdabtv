@@ -56,35 +56,46 @@ Rectangle {
     /*El delegado se usa para cada componente de la lista*/
     Component {
         id: nameDelegate
-        Text {
-            text: model.name;
-            font.pixelSize: 32
+        Rectangle {
+            id: root
+            /*Tiene que darle el ancho y alto*/
+            implicitHeight: txt.height
+
+            anchors.left: parent.left
+            anchors.right: parent.right
+            clip: true
+            color: lv.currentIndex == index ? "gray" : "yellow"
 
 
-            Component.onCompleted:{
-                console.log("Welcome", model.index, model.name)
+            Text {
+                id: txt
+                text: model.name;
+                font.pixelSize: 32
+
+                Component.onCompleted: console.log("Welcome", model.index, model.name)
+                Component.onDestruction: console.log("Die", model.index, model.name)
+
             }
-            Component.onDestruction:{
-                console.log("Die", model.index, model.name)
+
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: lv.currentIndex= model.index // se puede usar index solo
             }
         }
+
     }
     //--> slide
     /*Vista de la lista*/
     ListView {
+        id: lv
         anchors.fill: parent
         model: nameModel
         delegate: nameDelegate
-        /*Es necesario para que no dibueje los elementos
-        de la lista fuera al hacer scroll*/
         clip: true
-        /*Permite controlar cuantos pixeles se quieren
-        en la caché. La cache se llama cacheBuffer
-        y se puede controlar desde el elemento ListView e
-        indica cuantas lineas de pixeles se cachean arriba
-        y abajo de la lista*/
-        cacheBuffer: 40
-        //Component.onCompleted: console.log(cacheBuffer) // arroja 320 por defecto
+        Component.onCompleted: console.log(cacheBuffer) // arroja 320 por defecto
+        /*currentIndex es el item actual*/
+        onCurrentIndexChanged: console.log(currentIndex)
     }
     //<-- slide
 }
