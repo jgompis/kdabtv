@@ -31,7 +31,7 @@ Rectangle {
 
         MouseArea {
             anchors.fill: parent
-            onClicked: textField.text = ""
+            onClicked: textField.text  = ""
         }
     }
     //--> slide
@@ -39,7 +39,8 @@ Rectangle {
       State {
         name: "with text"
         when: textField.text !== ""
-        PropertyChanges { target: clearButton; opacity: 1.0 }
+        /*No hace falta, ya que el valor por defecto es 1*/
+        //PropertyChanges { target: clearButton; opacity: 1.0 }
       },
       State {
         name: "without text"
