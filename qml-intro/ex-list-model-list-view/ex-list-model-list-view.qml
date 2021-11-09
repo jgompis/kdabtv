@@ -57,14 +57,25 @@ Rectangle {
     Component {
         id: nameDelegate
         Rectangle {
-            id: root
+            /*Se le pone un id para que todos los subelementos
+            puedan acceder a las attached properties*/
+            //id: root
+
+            /*También se puede hacer a traves de una propiedad personalizada,
+            lo cual es más recomendable*/
+            readonly property ListView __lv : ListView.view
+
             /*Tiene que darle el ancho y alto*/
             implicitHeight: txt.height
 
             anchors.left: parent.left
             anchors.right: parent.right
             clip: true
-            color: lv.currentIndex == index ? "gray" : "yellow"
+            /*Accediendo a traves de la attached property,
+            se debe considerar que la attached property solo
+            esta relacionada con el elemento base del delegate*/
+            //color: ListView.view.currentIndex === index ? "gray" : "yellow"
+            color: __lv.currentIndex === index ? "gray" : "yellow"
 
 
             Text {
@@ -80,7 +91,9 @@ Rectangle {
 
             MouseArea {
                 anchors.fill: parent
-                onClicked: lv.currentIndex= model.index // se puede usar index solo
+                onClicked:
+                    __lv.currentIndex= model.index
+                    //root.ListView.view.currentIndex= model.index // se puede usar index solo
             }
         }
 
