@@ -8,7 +8,7 @@
  *************************************************************************/
 
 import QtQuick 2.0
-import QtQuick.Controls 1.2
+import QtQuick.Controls 1.2 // Botton, lineEdit etc
 import QtQuick.Layouts 1.1
 
 Item {
@@ -16,11 +16,15 @@ Item {
     height: 400
     //--> slide
     GridLayout {
+        /*Nuevamente se ancla al elemento padre */
         anchors.fill: parent
         anchors.margins: 5
 
-        columns: 3
+        columns: 3 // Tiene 3 columnas
 
+        /*No es necesario especificar la posición, simplemente se agrega el elemento a la grilla
+        y se va posicionando dependiendo del flow. La propiedad fillWidth se refiere en este
+        caso al ancho de la columna*/
         // auto positioning based on flow: forth button overflows into second row//--> hide
         Button {
             Layout.fillWidth: true
@@ -44,6 +48,9 @@ Item {
             text: "Four"
         }
 
+
+        /*Se pueden posicionar elementos en posiciones específicas
+        Si no se requiere ponerlos de manera automática */
         // specific placement
         Button {
             Layout.row: 1
@@ -60,7 +67,9 @@ Item {
 
         // spanning two columns, same row
         TextField {
+            /*Se estira dos columnas*/
             Layout.columnSpan: 2
+            /*Llena el ancho de dos columnas*/
             Layout.fillWidth: true
 
             placeholderText: "Enter filename"
@@ -70,9 +79,10 @@ Item {
             text: "Comment"
         }
 
+        /*Lugar para escribir*/
         TextArea {
-            Layout.columnSpan: 2
-            Layout.rowSpan: 4
+            Layout.columnSpan: 2 // Se estira dos columnas
+            Layout.rowSpan: 4 // Se estira 4 filas
             Layout.fillWidth: true
             Layout.fillHeight: true
         }
