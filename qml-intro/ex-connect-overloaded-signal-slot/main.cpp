@@ -40,6 +40,7 @@ int main(int argc, char *argv[])
     doubleHorizontalLayout->addWidget(doubleLcd);
     topLayout->addLayout(doubleHorizontalLayout);
 
+    /*Forma previa de utilizar funciones sobrecargadas (sin macros)*/
     // Uncommenting the following connect statement would result in a
     // "unresolved function pointer" compile error.
     // QObject::connect(slider, &QSlider::valueChanged,
@@ -53,10 +54,11 @@ int main(int argc, char *argv[])
                      static_cast<void(QLCDNumber::*)(int)>
                         (&QLCDNumber::display));
 
-
+    /*Forma previa de utilizar funciones sobrecargadas sin macros a partir
+    de la versión 5.7*/
     // In Qt 5.7 there's an easier syntax for selecting the right overload:
     //
-    // QOverload::of<arguments>(&Class::function)
+    // QOverload::of<arguments>(&Class::function) // PARA TENER EN CUENTA
     //
     // If the function is overloaded over const, one can use QConstOverload and
     // QNonConstOverload to pick the right one.
@@ -68,6 +70,8 @@ int main(int argc, char *argv[])
 //                     integerLcd,
 //                     QOverload<int>::of(&QLCDNumber::display));
 
+
+    /*Otra forma con la versión 5.7*/
 
     // Also in Qt 5.7, if C++14 is enabled (CONFIG += c++14 in the .pro file),
     // there's a even easier syntax using qOverload:
