@@ -29,6 +29,10 @@ int main(int argc, char *argv[])
     horizontalLayout->addWidget(spin);
     topLayout->addLayout(horizontalLayout);
 
+    /*Conexión de signal-slot con macro, en este caso
+    la función connect toma como 2do y 4to argumento
+    strings, que son dados gracias a las macros SIGNAL
+    y SLOT*/
     QObject::connect(slider, SIGNAL(valueChanged(int)),
                      spin, SLOT(setValue(int)));
     slider->setValue(40);
