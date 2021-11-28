@@ -59,16 +59,18 @@ int main(int argc, char *argv[])
     // set the slider position and hence the QSpinBox value too
     slider->setValue(40);
 
-    // using a functor
-    QObject::connect(lineEdit, &QLineEdit::textChanged, LogString("Log: "));
-
-    // using a lambda function
+    // 1. using a lambda function
     QObject::connect(pressMeButton, &QPushButton::pressed,
                      [pressMeButton] {pressMeButton->setText("Release Me!");});
     QObject::connect(pressMeButton, &QPushButton::released,
                      [pressMeButton] {pressMeButton->setText("Press Me!");});
 
-    // using a stand alone function pointer
+    // 2. using a functor
+    /*LogString es un functor*/
+    QObject::connect(lineEdit, &QLineEdit::textChanged, LogString("Log: "));
+
+
+     // 3. using a stand alone function pointer
     QObject::connect(quitButton, &QPushButton::clicked,
                      myStandAloneFunction);
 
@@ -80,13 +82,26 @@ int main(int argc, char *argv[])
     selfDestroyingLabel->resize(400, 200);
 
     // make the label delete itself when it gets closed
+    /*Cuando sea que se cierre la ventana, Qt notificará que borrará el objeto
+    */
     selfDestroyingLabel->setAttribute(Qt::WA_DeleteOnClose);
 
+    // Lambda con problemas que hace referencia a un objeto destruido
+//        QObject::connect(pressMeButton, &QPushButton::clicked,
+//                         [selfDestroyingLabel] {
+//            selfDestroyingLabel->setText(selfDestroyingLabel->text() +
+//                                         "\nButton clicked!");
+//        });
+
+    /* Problema corregido al indicar quién implementa el slot, forma preferida
+    de implementar slots con expresiones lambda
+*/
     QObject::connect(pressMeButton, &QPushButton::clicked, selfDestroyingLabel,
                      [selfDestroyingLabel] {
         selfDestroyingLabel->setText(selfDestroyingLabel->text() +
                                      "\nButton clicked!");
     });
+
 
     window->show();
     selfDestroyingLabel->show();
