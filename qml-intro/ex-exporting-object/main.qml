@@ -49,6 +49,8 @@ Item {
             Text { text: "<b>Details</b>" }
             Text { text: "Name: " + _userData.name }
             Text { text: "Age: " + _userData.age }
+            /*Como role() depende de propiedades que cambian,
+            cuando cambia una de ellas se llama a la función*/
             Text { text: "Role: " + role()}
         }
     }

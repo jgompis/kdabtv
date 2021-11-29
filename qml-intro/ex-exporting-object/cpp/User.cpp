@@ -15,17 +15,21 @@ User::User(const QString name, const QDate& birthDay, Role role)
 {
 }
 
+/*lectura del nombre desde QML*/
 QString User::name() const
 {
     return m_name;
 }
 
+/*Establece  nombre desde QML*/
 void User::setName(const QString &name)
 {
+    /*!IMPORTANTE: no emitir señales si no ha
+    cambiado el valor*/
     if ( name == m_name )
         return;
     m_name = name;
-    emit nameChanged();
+    emit nameChanged(); // La señal se debe emitir una vez cambiado el valor
 }
 
 int User::age() const
@@ -34,6 +38,9 @@ int User::age() const
     // It's an exercises for the interested student to fix :-)
 
     // Further, notice we would have to set up a signal to fire when we reaches his birthday.
+    /*No es necesario que la propiedad tenga correspondencia
+    con una variable privada de la clase, las propiedades existen
+    como concepto*/
     return QDate::currentDate().year() - m_birthDay.year();
 }
 

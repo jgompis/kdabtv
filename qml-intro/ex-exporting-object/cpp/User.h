@@ -30,7 +30,7 @@ class User : public QObject
 
 public:
     enum Role { Developer = 0, Tester = 1, ProjectManager = 2 };
-    Q_ENUM( Role )
+    Q_ENUM( Role ) // Exporta el enum
     //--> hide
 
     explicit User(const QString name = QString(), const QDate& birthday = QDate(), Role role = Developer);
