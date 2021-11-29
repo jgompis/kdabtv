@@ -15,15 +15,19 @@
 
 class StopWatch : public QObject
 {
+    /* No es necesario en Qt5 (si en Qt4) pero tiene
+     * ventajas al utilizar gammaray. También es necesario
+     * cuando se utilizan conexiones basadas en Macros
+    */
     Q_OBJECT
 
 public:
-    explicit StopWatch(QObject *parent = nullptr);
+    explicit StopWatch(QObject *parent = nullptr); // Constructor
 
-private slots:
+private slots: // Slots, no es necesario explicitarlo
     void addOneSecond();
 
-private:
+private: // Variable interna
     int m_secs;
 };
 

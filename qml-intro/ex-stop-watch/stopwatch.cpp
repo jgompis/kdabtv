@@ -20,6 +20,8 @@ using namespace std::chrono_literals;
 StopWatch::StopWatch(QObject *parent)
     : QObject(parent), m_secs(0)
 {
+    /*Crea un nuevo timer, considerar que le pasa como parámetro this,
+    es decir que este objeto será el padre del timer*/
     QTimer *timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &StopWatch::addOneSecond);
 
