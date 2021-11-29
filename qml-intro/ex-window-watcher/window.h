@@ -14,6 +14,8 @@
 
 class Window : public QWindow
 {
+    /*Es necesario siempre que se cuente con señales
+    personalizadas*/
     Q_OBJECT
 
 signals:

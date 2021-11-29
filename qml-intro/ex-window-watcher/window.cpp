@@ -13,7 +13,7 @@
 
 void Window::moveEvent(QMoveEvent *event)
 {
-    QWindow::moveEvent(event);
+    QWindow::moveEvent(event); // Llama al método de la clase base
 
-    emit positionChanged(event->pos());
+    emit positionChanged(event->pos()); // Y luego emite la señal
 }
