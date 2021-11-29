@@ -22,6 +22,9 @@ int main(int argc, char *argv[])
     // ...
     QQuickView view;
     QQmlContext* context = view.engine()->rootContext();
+    /*Establece las variables compartidas, se utiliza _ al principio
+    de las variables como convención para indicar que dicha variable
+    proviene de C++*/
     context->setContextProperty("_aString", QString("KDAB"));
     context->setContextProperty("_aSize", QSize(800,600));
     context->setContextProperty("_today", QDateTime::currentDateTime());

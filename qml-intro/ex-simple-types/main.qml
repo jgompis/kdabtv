@@ -18,6 +18,8 @@ Item {
         anchors.centerIn: parent
         spacing: 10
         //<-- hide
+        /*Desde QML se puede acceder a las variables sin tener que
+        hacer nada en especial, son como variables "globales"*/
         Text { text: "The string: " + _aString }
         Text { text: "The size: " + _aSize }
         Text { text: "Today is: " + _today }
