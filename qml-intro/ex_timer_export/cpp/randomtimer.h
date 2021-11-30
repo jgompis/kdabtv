@@ -31,6 +31,7 @@ public:
 
     bool isActive() const;
 
+    /*Metodo que se puede llamar desde QML*/
     Q_INVOKABLE int randomInterval( int min, int max ) const;
 
 public slots:

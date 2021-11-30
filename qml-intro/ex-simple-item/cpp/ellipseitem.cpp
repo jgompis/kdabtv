@@ -22,10 +22,10 @@ void EllipseItem::paint(QPainter *painter)
 //--> hide
     painter->save();
 
-    QPen pen = painter->pen();
-    pen.setBrush(m_color);
-    pen.setWidth(3);
-    painter->setPen(pen);
+    QPen pen = painter->pen(); // pen
+    pen.setBrush(m_color); // Color
+    pen.setWidth(3); // Ancho
+    painter->setPen(pen); // Establece el pen
     const QRectF paintRect = QRectF({}, QSizeF{width(), height()}).adjusted(1, 1, -1, -1);
 //<-- hide
     painter->drawEllipse(paintRect);
@@ -44,7 +44,7 @@ void EllipseItem::setColor(const QColor &newColor)
 {
     if (m_color != newColor) {
         m_color = newColor;
-        update();
+        update(); // Avisa a QML que se debe repintar
         emit colorChanged();
     }
 }

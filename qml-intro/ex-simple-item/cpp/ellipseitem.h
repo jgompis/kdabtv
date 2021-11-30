@@ -14,6 +14,7 @@
 //--> slide
 #include <QQuickPaintedItem>
 
+// Subclase de un QQuickPaintedItem
 class EllipseItem : public QQuickPaintedItem
 {
     Q_OBJECT

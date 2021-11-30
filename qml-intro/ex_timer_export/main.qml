@@ -26,7 +26,7 @@ Rectangle {
     /*Instanciado de la clase*/
     RandomTimer {
         id: timer
-        interval: timer.randomInterval( 500, 1500 )
+        interval: timer.randomInterval( 500, 1500 ) // Establece una propiedad
 
         onTimeout: {
             console.log( "Timer fired!" );
