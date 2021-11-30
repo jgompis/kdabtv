@@ -23,6 +23,7 @@ Rectangle {
         anchors.bottomMargin: 60
     }
 
+    /*Instanciado de la clase*/
     RandomTimer {
         id: timer
         interval: timer.randomInterval( 500, 1500 )

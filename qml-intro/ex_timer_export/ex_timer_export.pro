@@ -1,8 +1,10 @@
 QT += qml quick
 
+#agregado en sources
 SOURCES += cpp/main.cpp \
     cpp/randomtimer.cpp
 
+#agregado en headers
 HEADERS += \
     cpp/randomtimer.h
 

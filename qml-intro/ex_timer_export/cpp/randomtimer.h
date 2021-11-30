@@ -16,6 +16,7 @@
 
 class QTimer;
 
+/*1. Creación de la clase*/
 class RandomTimer : public QObject
 {
     Q_OBJECT
