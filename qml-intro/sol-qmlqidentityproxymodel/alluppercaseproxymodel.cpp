@@ -16,9 +16,10 @@ AllUpperCaseProxyModel::AllUpperCaseProxyModel(QObject *parent)
 {
 }
 
+/*Filtra/Modifica los datos del original*/
 QVariant AllUpperCaseProxyModel::data(const QModelIndex &index, int role) const
 {
-    const QVariant value =  QIdentityProxyModel::data(index, role);
+    const QVariant value =  QIdentityProxyModel::data(index, role); // valor del modelo inferior
 
     if (role == PlayListModel::TitleRole) {
         const QString title = value.toString();
