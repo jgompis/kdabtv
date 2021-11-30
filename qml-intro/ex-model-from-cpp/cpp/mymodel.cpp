@@ -13,6 +13,7 @@
 #include <QTimer>
 #include <cstdlib>
 
+
 MyModel::MyModel(QObject *parent) :
     QAbstractListModel(parent)
 {
@@ -28,6 +29,7 @@ MyModel::MyModel(QObject *parent) :
     growthTimer->start(2000);
 }
 
+// Cuantos elementos hay en la fila
 int MyModel::rowCount( const QModelIndex& parent) const
 {
     if (parent.isValid())
@@ -36,6 +38,9 @@ int MyModel::rowCount( const QModelIndex& parent) const
     return m_data.count();
 }
 
+/*Básicamente a través de este método, la lista le va pidiendo
+elementos de datos, y hay que filtrarlos. Es decir que obtiene
+un role en particular para un índice en particula*/
 QVariant MyModel::data(const QModelIndex &index, int role) const
 {
     if ( !index.isValid() )
@@ -50,10 +55,12 @@ QVariant MyModel::data(const QModelIndex &index, int role) const
     else if ( role == PopulationRole )
         return data.population;
     else
-        return QVariant();
+        return QVariant(); // Retorna QVariant indicando que no sabe que dato pide
+
+    /*Siempre que se pida por algo con lo que no se cuenta, retornará una QVariant vacía*/
 }
 
-//--> slide
+// A cada elemento del enum le corresponde un string
 QHash<int, QByteArray> MyModel::roleNames() const
 {
     static QHash<int, QByteArray> mapping {
@@ -63,10 +70,11 @@ QHash<int, QByteArray> MyModel::roleNames() const
     };
     return mapping;
 }
-//<-- slide
+
 
 void MyModel::duplicateData(int row)
 {
+    // Evita crash
     if (row < 0 || row >= m_data.count())
         return;
 
@@ -102,5 +110,6 @@ void MyModel::growPopulation()
     const QModelIndex endIndex   = index(count - 1, 0);
 
     // ...but only the population field
+    /*Indic que ha cambiado un dato*/
     emit dataChanged(startIndex, endIndex, QVector<int>() << PopulationRole);
 }

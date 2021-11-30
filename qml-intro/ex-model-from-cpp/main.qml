@@ -36,9 +36,9 @@ ListView {
             acceptedButtons: Qt.LeftButton | Qt.RightButton
             onDoubleClicked: {
                 if (mouse.button === Qt.LeftButton) {
-                    _myModel.duplicateData(model.index);
+                    _myModel.duplicateData(model.index); // Duplica el dato
                 } else if (mouse.button === Qt.RightButton) {
-                    _myModel.removeData(model.index);
+                    _myModel.removeData(model.index); // Remueve el dato
                 }
             }
         }

@@ -13,6 +13,7 @@
 #include <QAbstractListModel>
 #include <QColor>
 
+// Define el tipo de dato del vector
 struct Data {
     Data() {}
     Data( const QString& name, const QString& flag, double population )
@@ -22,13 +23,15 @@ struct Data {
     double population;
 };
 
+// Derivado de QAbsctractListModel
 class MyModel : public QAbstractListModel
 {
     Q_OBJECT
 
 public:
+    // Los roles son los campos de cada ListElement
     enum Roles {
-        NameRole = Qt::UserRole,
+        NameRole = Qt::UserRole, // El inicial debe ser igual a Qt::UserRole
         FlagRole,
         PopulationRole
     };
@@ -47,7 +50,7 @@ private slots:
     void growPopulation();
 
 private: //members
-    QVector< Data > m_data;
+    QVector< Data > m_data; // Acá se encuentra la información almacenada
 };
 
 #endif // MYMODEL_H
