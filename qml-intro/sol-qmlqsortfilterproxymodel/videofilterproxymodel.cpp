@@ -30,12 +30,12 @@ void VideoFilterProxyModel::setVideoFilterEnabled(bool enabled)
     m_videoFilterEnabled = enabled;
     emit videoFilterEnabledChanged();
 
-    invalidateFilter();
+    invalidateFilter(); // invalida el filtro
 }
 
 bool VideoFilterProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
 {
-    if (!m_videoFilterEnabled)
+    if (!m_videoFilterEnabled) // Si no está habilitado retorna
         return true;
 
     const QModelIndex index = sourceModel()->index(sourceRow, 0, sourceParent);

@@ -21,9 +21,11 @@ int main(int argc, char *argv[])
 
     PlayListModel model;
 
+    // Filtra video
     VideoFilterProxyModel filterProxyModel;
     filterProxyModel.setSourceModel(&model);
 
+    // Filtra duración
     DurationSortProxyModel sortProxyModel;
     sortProxyModel.setSourceModel(&filterProxyModel);
 

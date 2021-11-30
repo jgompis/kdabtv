@@ -1,4 +1,4 @@
-/*************************************************************************
+ /*************************************************************************
  *
  * Copyright (c) 2016-2019, Klaralvdalens Datakonsult AB (KDAB)
  * All rights reserved.
@@ -16,6 +16,7 @@ class VideoFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 
+    // Acceso desde QML para poder habilitar o deshabilitar el filtro
     Q_PROPERTY(bool videoFilterEnabled READ videoFilterEnabled WRITE setVideoFilterEnabled NOTIFY videoFilterEnabledChanged)
 
 public:
